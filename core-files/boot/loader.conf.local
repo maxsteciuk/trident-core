@@ -18,3 +18,13 @@ hw.vga.textmode="1"
 sound_load="YES"
 snd_driver_load="YES"
 snd_hda_load="YES"
+
+# FIXME: Since migration from devd to devmatch USB modules are not loaded automatically
+# As a workaround the following would need to be added while the root cause is investigated.
+# snd_uaudio needs to be loaded by bootloader before hw.snd.default_unit is applied where default_unit is USB audio device
+# Please see the FreeBSD bugtracker for details: https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=235257
+snd_uaudio_load="YES"
+# This is for USB WiFi module
+if_rtwn_load="YES"
+# This is for USB Serial module 
+uplcom_load="YES"
